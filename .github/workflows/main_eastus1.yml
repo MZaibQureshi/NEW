@@ -12,15 +12,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Azure login using publish profile
-      - name: Azure Login with Publish Profile
-        uses: azure/login@v1
-        with:
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EASTUS }}
-
-      - name: Deploy to Azure Web App
+      - name: Deploy to EastUS1 Web App
         uses: azure/webapps-deploy@v2
         with:
           app-name: EastUS1
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EASTUS }}
-          package: .
+          package: .   # deploys index.js, file.json, web.config
