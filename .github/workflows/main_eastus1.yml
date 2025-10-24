@@ -12,16 +12,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Optional: Node.js setup skipped because no package.json
-      # - name: Setup Node.js
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: 18
-
-      - name: Azure Login
+      # Azure login using publish profile
+      - name: Azure Login with Publish Profile
         uses: azure/login@v1
         with:
-          creds: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EASTUS }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EASTUS }}
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
