@@ -9,12 +9,11 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Deploy to EastUS1 Web App
+      - name: Deploy to Azure Web App (EastUS1)
         uses: azure/webapps-deploy@v2
         with:
           app-name: EastUS1
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EASTUS }}
-          package: .   # deploys index.js, file.json, web.config
+          publish-profile: ${{ secrets.secret123 }}
+          package: .
