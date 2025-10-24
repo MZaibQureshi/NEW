@@ -16,4 +16,5 @@ jobs:
         with:
           app-name: EastUS1
           publish-profile: ${{ secrets.secret123 }}
-          package: .
+          package: ./eastusapp
+
