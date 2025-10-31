@@ -61,5 +61,6 @@ jobs:
         with:
           app-name: 'appservice234'
           slot-name: 'staging'
-          package: .
+          package: ./eastusapp
+
           
